@@ -91,6 +91,7 @@ def copy_schedule():
     copy_tree(fromDirectory, toDirectory)
     schedule_w.destroy()
     copy_complete = messagebox.showinfo("Complete", "schedules have been copied")
+    screen.deiconify()
     copyr.destroy()
 
 
@@ -174,8 +175,13 @@ def copy_schedule_window():
         copyr, text="Ok", bg="grey", command=schedule_wait)
     copy_schedule_button.pack()
     cancel_schedule_button = Button(
-        copyr, text="Cancel", bg="grey", command=copyr.destroy)
+        copyr, text="Cancel", bg="grey", command=cancel_route_copy)
     cancel_schedule_button.pack()
+
+    
+def cancel_route_copy():
+    screen.deiconify()
+    copyr.destroy()
 
 
 screen = Tk()
