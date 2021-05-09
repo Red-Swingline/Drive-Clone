@@ -138,16 +138,8 @@ def mount_dest():
 
 def delete():
     """Deletes the schedule folder from drive"""
-    folder = '/media/newdrive/schedule'
-    for filename in os.listdir(folder):
-        file_path = os.path.join(folder, filename)
-        try:
-            if os.path.isfile(file_path) or os.path.islink(file_path):
-                os.unlink(file_path)
-            elif os.path.isdir(file_path):
-                shutil.rmtree(file_path)
-        except Exception as e:
-            print('Failed to delete %s. Reason: %s' % (file_path, e))
+    path = os.path.join('/media/newdrive/schedule', 'SQL')
+    shutil.rmtree(path)
 
 
 def copy_schedule_window():
